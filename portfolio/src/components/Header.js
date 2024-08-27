@@ -1,9 +1,9 @@
 import React from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
-function Header() {
+function Header({ toggleTheme }) {
   return (
     <header>
-      <h1>Janhvi Verma</h1>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -12,6 +12,10 @@ function Header() {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <button onClick={toggleTheme} className="theme-toggle">
+        <FaSun className="sun-icon" />
+        <FaMoon className="moon-icon" />
+      </button>
     </header>
   );
 }

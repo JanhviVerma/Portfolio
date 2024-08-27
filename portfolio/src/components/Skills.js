@@ -1,35 +1,34 @@
 import React from 'react';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGitAlt } from 'react-icons/fa';
 
 function Skills() {
   return (
     <section id="skills">
       <h2>My Skills</h2>
-      <div className="skills-container">
-        <div className="skill-category">
-          <h3>Programming</h3>
-          <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Python</li>
-          </ul>
+      <div className="skills-grid">
+        <div className="skill-item">
+          <FaHtml5 />
+          <span>HTML5</span>
         </div>
-        <div className="skill-category">
-          <h3>Tools</h3>
-          <ul>
-            <li>Git</li>
-            <li>VS Code</li>
-            <li>GitHub</li>
-          </ul>
+        <div className="skill-item">
+          <FaCss3Alt />
+          <span>CSS3</span>
         </div>
-        <div className="skill-category">
-          <h3>Soft Skills</h3>
-          <ul>
-            <li>Problem Solving</li>
-            <li>Time Management</li>
-            <li>Teamwork</li>
-            <li>Creativity</li>
-          </ul>
+        <div className="skill-item">
+          <FaJs />
+          <span>JavaScript</span>
+        </div>
+        <div className="skill-item">
+          <FaReact />
+          <span>React</span>
+        </div>
+        <div className="skill-item">
+          <FaPython />
+          <span>Python</span>
+        </div>
+        <div className="skill-item">
+          <FaGitAlt />
+          <span>Git</span>
         </div>
       </div>
     </section>
