@@ -1,25 +1,31 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-function Projects() {
+function Projects({ setSelectedProject }) {
   const projects = [
     {
       title: "Weather App",
       description: "A React-based weather application providing real-time weather information.",
       githubLink: "https://github.com/JanhviVerma/weather-app",
-      liveLink: "#"
+      liveLink: "#",
+      image: "/path-to-weather-app-image.jpg",
+      technologies: ["React", "OpenWeatherMap API", "CSS3"]
     },
     {
       title: "Todo List",
       description: "A feature-rich todo list application built with React.",
       githubLink: "https://github.com/JanhviVerma/todo-list",
-      liveLink: "#"
+      liveLink: "#",
+      image: "/path-to-todo-list-image.jpg",
+      technologies: ["React", "LocalStorage", "CSS3"]
     },
     {
       title: "Portfolio Website",
       description: "This interactive portfolio showcasing my skills and projects.",
       githubLink: "https://github.com/JanhviVerma/portfolio",
-      liveLink: "#"
+      liveLink: "#",
+      image: "/path-to-portfolio-image.jpg",
+      technologies: ["React", "CSS3", "React Icons"]
     }
   ];
 
@@ -28,7 +34,8 @@ function Projects() {
       <h2>My Projects</h2>
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <div key={index} className="project-card">
+          <div key={index} className="project-card" onClick={() => setSelectedProject(project)}>
+            <img src={project.image} alt={project.title} />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
             <div className="project-links">

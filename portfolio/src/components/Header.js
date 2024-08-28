@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 function Header({ toggleTheme }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header>
+    <header className={isScrolled ? 'scrolled' : ''}>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
