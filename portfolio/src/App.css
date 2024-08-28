@@ -1,3 +1,4 @@
+/* App.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
@@ -6,6 +7,7 @@
   --text-color: #333;
   --bg-color: #f7f7f7;
   --card-bg-color: #fff;
+  --transition: all 0.3s ease;
 }
 
 .dark {
@@ -23,7 +25,7 @@ body {
   padding: 0;
   color: var(--text-color);
   background-color: var(--bg-color);
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
 }
 
 .App {
@@ -43,6 +45,11 @@ header {
   right: 0;
   background-color: var(--bg-color);
   z-index: 1000;
+  transition: var(--transition);
+}
+
+header.scrolled {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -59,7 +66,7 @@ nav ul li a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: var(--transition);
 }
 
 nav ul li a:hover {
@@ -72,10 +79,11 @@ nav ul li a:hover {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--text-color);
+  transition: var(--transition);
 }
 
 .sun-icon, .moon-icon {
-  transition: opacity 0.3s ease;
+  transition: var(--transition);
 }
 
 .dark .sun-icon {
@@ -109,7 +117,7 @@ nav ul li a:hover {
   font-size: 1.5rem;
   color: var(--text-color);
   margin: 0 10px;
-  transition: color 0.3s ease;
+  transition: var(--transition);
 }
 
 .social-links a:hover {
@@ -141,6 +149,38 @@ h2 {
   margin-right: 2rem;
 }
 
+.about-details {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-details li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.about-details li svg {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+.hobbies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hobbies-list li {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
 .about-image img {
   width: 200px;
   height: 200px;
@@ -150,7 +190,7 @@ h2 {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
@@ -161,7 +201,7 @@ h2 {
   padding: 1rem;
   background-color: var(--bg-color);
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: var(--transition);
 }
 
 .skill-item:hover {
@@ -174,6 +214,21 @@ h2 {
   color: var(--primary-color);
 }
 
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.skill-level {
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 1s ease-in-out;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -182,19 +237,35 @@ h2 {
 
 .project-card {
   background-color: var(--bg-color);
-  padding: 1.5rem;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
 }
 
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  padding: 1rem;
+  margin: 0;
+}
+
+.project-card p {
+  padding: 0 1rem 1rem;
+}
+
 .project-links {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  padding: 0 1rem 1rem;
 }
 
 .project-links a {
@@ -207,6 +278,31 @@ h2 {
 
 .project-links a svg {
   margin-right: 0.5rem;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.achievement-item:hover {
+  transform: translateY(-5px);
+}
+
+.achievement-item svg {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: var(--primary-color);
 }
 
 form {
@@ -230,30 +326,33 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
 }
 
 button:hover {
   background-color: #2980b9;
 }
 
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  color: var(--text-color);
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-
-  .about-text {
-    margin-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+.modal-content {
+  background-color: var(--card-bg-color);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
 }
